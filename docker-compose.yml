@@ -5,9 +5,9 @@ services:
     container_name: joys_node
     build: node
     restart: always
-    entrypoint: /root/start.sh
+    entrypoint: /Joys/start.sh
     volumes:
-      - geth_data:/root/node:rw
+      - geth_data:/Joys/node:rw
     ports:
       - "30303:30303"
       - "30303:30303/udp"
