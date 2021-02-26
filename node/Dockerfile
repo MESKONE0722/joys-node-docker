@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install geth --yes
 
 #ADD http://boot.joys.digital/genesis.json /root/
 #ADD http://boot.joys.digital/fork1.json /root/
-ADD http://boot.joys.digital/fork2.json /home/Joys/
-ADD http://boot.joys.digital/static-nodes.json /home/Joys/
+ADD http://boot.joys.digital/fork2.json /Joys/
+ADD http://boot.joys.digital/static-nodes.json /Joys/
 
 ADD start.sh /Joys/start.sh
 RUN chmod +x /Joys/start.sh
