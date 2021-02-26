@@ -7,14 +7,14 @@ RUN apt-get update && apt-get install geth --yes
 
 #ADD http://boot.joys.digital/genesis.json /root/
 #ADD http://boot.joys.digital/fork1.json /root/
-ADD http://boot.joys.digital/fork2.json /root/
-ADD http://boot.joys.digital/static-nodes.json /root/
+ADD http://boot.joys.digital/fork2.json /home/Joys/
+ADD http://boot.joys.digital/static-nodes.json /home/Joys/
 
-ADD start.sh /root/start.sh
-RUN chmod +x /root/start.sh
+ADD start.sh /Joys/start.sh
+RUN chmod +x /Joys/start.sh
 
 EXPOSE 30303
 EXPOSE 30303/udp
 EXPOSE 8545
 
-ENTRYPOINT /root/start.sh
+ENTRYPOINT /Joys/start.sh
