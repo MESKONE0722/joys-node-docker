@@ -11,7 +11,7 @@ Creating a Joys node
 ====================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-git clone https://github.com/Joys-digital/joys-node-docker
+git clone https://github.com/MESKONE0722/joys-node-docker.git
 cd joys-node-docker
 sudo docker-compose -f docker-compose.yml up --build
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
