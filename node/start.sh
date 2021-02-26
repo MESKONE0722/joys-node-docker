@@ -2,34 +2,40 @@
 
 if [ ! -f ~/.initialised ]; then
     echo "First time running node..."
-    geth --datadir=/root/node/joys init "/root/genesis.json"
+    geth --datadir=/Joys/node/joys init "/Joys/genesis.json"
     touch ~/.initialised
 fi
 if [ ! -f ~/.fork1 ]; then
     echo "fork1 running node..."
-    geth --datadir=/root/node/joys init "/root/fork1.json"
+    geth --datadir=/Joys/node/joys init "/Joys/fork1.json"
     touch ~/.fork1
 fi
 if [ ! -f ~/.fork2 ]; then
     echo "fork2 running node..."
-    geth --datadir=/root/node/joys init "/root/fork2.json"
+    geth --datadir=/Joys/node/joys init "/Joys/fork2.json"
     touch ~/.fork2
 fi
 
 sleep 3
-cp /root/static-nodes.json /root/node/joys/geth
+cp /Joys/static-nodes.json /Joys/node/joys/geth
 
 NODE_NAME=dockerff.${HOSTNAME}
 
 geth \
---datadir=/root/node/joys \
+console \
+--datadir=/Joys/node/joys \
 --networkid=35855456 \
 --rpc \
 --rpcvhosts "*" \
 --rpccorsdomain="*" \
---rpcaddr "0.0.0.0" \
+--rpcaddr "127.0.0.1" \
 --rpcapi "admin,db,personal,eth,net,web3,shh,txpool" \
 --bootnodes="\
+--rpcport "8545" \
+--port "30303" \
+--mine \
+--etherbase "0x" \
+--cache="8192" \
 enode://3d71b3f2e8e4463e9b91c9c9f7794e67df4892cfb2354bc0444f9b6aa66ea6c99451e567b89e795e7ebcff79e56679234169f85f197b282b5d5f59e3c4cc3a30@92.53.100.7:30303,\
 enode://a4cd386a86c607dab8686a5e919757df08a1006bcfd9df75d0d58338f6985e91bc8091a49be36acb582a3c2c70db33e36f59741311325fc6cb24073eb1f2dfee@185.91.52.220:30303,\
 enode://aa2a8c5438adef24647871bdfd75496a8a4b47226253385cb7cbcaa7fbcfc9872c64b3990033abfe584dbfdeccca013d64a659b7426c88ed71a0987b969bbd83@79.141.65.76:30303,\
